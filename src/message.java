@@ -1,8 +1,7 @@
-package demo;
 
-class MyThread implements Runnable{
+class message implements Runnable{
     String message;
-    MyThread (String message){
+    message (String message){
         this.message = message;
     }
     @Override
