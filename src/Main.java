@@ -1,13 +1,19 @@
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Resource r1 = new Resource();
-        Resource r2 = new Resource();
+        Shared s = new Shared();
 
         Thread t1 = new Thread(() ->
-                r1.method1(r2));
-        Thread t2 = new Thread(() ->
-                r2.method2(r1));
+                s.waitMethod());
+        Thread t2 = new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (Exception e) {
+            }
+            s.notifyMethod();
+        });
         t1.start();
         t2.start();
     }
 }
+
+
