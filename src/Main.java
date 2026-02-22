@@ -1,12 +1,13 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args){
-        List<Integer> list = Arrays.asList(1,2,3,4);
-        try{
-            Thread.sleep(5000);
-        }catch (Exception e) {}
-        list.stream()
-                .map(n -> n*2)
-                .forEach(System.out::println);
+
+        List<Integer> list = Arrays.asList(10,20,30);
+        int max = list.stream()
+                .max(Integer::compare)
+                .get();
+        System.out.println("max no. is :" + max);
     }
 }
